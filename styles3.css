@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    background-color: black;
+    margin-top: 20px;
+}
+
+header {
+    padding: 20px;
+}
+
+.buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin: 20px 0;
+    align-items: flex-end;
+}
+
+.inspiration {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: gray;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+p.tagline {
+    font-size: 1.5rem;
+    font-weight: 400; 
+}
+
+.lead {
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+.main-image {
+    width: 300px;
+}
+
+.container {
+    padding: 0 2rem;
+    display: flex; /* Cambio añadido */
+    flex-direction: column; /* Cambio añadido */
+    align-items: center; /* Cambio añadido */
+}
+
+.item {
+    display: flex; /* Cambio añadido */
+    flex-direction: column; /* Cambio añadido */
+    align-items: center; /* Cambio añadido */
+    margin-top: 20px; /* Cambio añadido */
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.auth-buttons button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn-outline-light {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.auth-buttons button:hover {
+    background-color: #666;
+}
+
+.btn-secondary {
+    color: white;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.profile-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .reviews-section {
+    margin-top: 40px;
+  }
+  
+  .reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .review-card {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .review-card p {
+    margin: 0;
+  }

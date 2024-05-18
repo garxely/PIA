@@ -1,20 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Años Pasados y De Temporada</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Temporada</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container mt-4">
-        <h2>Ganadores de Años Pasados</h2>
-        <p>Listado de películas, canciones y juegos ganadores de años anteriores.</p>
-        
-        <h2 class="mt-4">De Temporada</h2>
-        <p>Listado de películas, canciones y juegos ganadores de la temporada actual.</p>
-    </div>
+<div class="container">
+  <header>
+    <h1>Temporada</h1>
+    <p>Seleccione la temporada de la cual desea ver reseñas</p>
+    <div class="dropdown">
+      <button onclick="toggleDropdown()" class="dropbtn">Seleccionar Año</button>
+      <div id="myDropdown" class="dropdown-content">
+        <?php
+          // Conexión a la base de datos
+          $conn = new mysqli("localhost", "usuario", "contraseña", "basededatos");
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+          // Verificar la conexión
+          if ($conn->connect_error) {
+            die("La conexión falló: " . $conn->connect_error);
+          }
+
+          // Consulta para obtener los años
+          $sql = "SELECT year FROM years ORDER BY year DESC";
+
+          // Ejecutar la consulta
+          $result = $conn->query($sql);
+
+          // Mostrar los años como opciones
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              echo '<a href="#" onclick="selectYear(' . $row["year"] . ')">' . $row["year"] . '</a>';
+            }
+          } else {
+            echo "0 resultados";
+          }
+
+          // Cerrar la conexión
+          $conn->close();
+        ?>
+      </div>
+    </div>
+    <a href="#" id="seeWinnersButton" style="display:none;"><button>Ver las ganadoras de ese año</button></a>
+  </header>
+</div>
+
+<script>
+function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function selectYear(year) {
+  document.getElementById("seeWinnersButton").style.display = "block";
+  document.getElementById("seeWinnersButton").setAttribute("href", "pagina2.html?year=" + year);
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
 </body>
 </html>
