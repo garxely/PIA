@@ -1,0 +1,59 @@
+/* styles1.css */
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+img {
+    max-width: 50%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: center; /* Centrar los botones */
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ccc; /* gris */
+    color: black; /* texto negro */
+    border: none;
+    border-radius: 10px; /* esquinas redondeadas */
+    cursor: pointer;
+}
+
+.inspiration {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: gray;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+p.tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.lead {
+    font-size: 1.25rem;
+    margin-top: 0;
+}

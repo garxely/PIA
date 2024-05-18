@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Película</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Cancion</h1>
+        <div class="content">
+            <div class="container">
+                <img src="tu-imagen.jpg" alt="Imagen de la película" class="movie-image">
+            </div>
+            <div class="review">
+                <textarea placeholder="Escribe tu reseña aquí"></textarea>
+                <button onclick="publishReview()">Publicar</button>
+            </div>
+            <div class="details">
+                <h2>Título</h2>
+                <p>Sinopsis</p>
+                <h3>Cantante:</h3>
+                <ul>
+                    <li>Cantante 1</li>
+                    
+                </ul>
+            </div>
+            <button onclick="showScreen('menu')">Regresar</button>
+        </div>
+        <div class="comments">
+            <h2>Comentarios</h2>
+            <?php
+            // Conexión a la base de datos
+            $mysqli = new mysqli("localhost", "usuario", "contraseña", "basededatos");
+
+            // Consulta los comentarios de la base de datos
+            $result = $mysqli->query("SELECT usuario, comentario FROM comentarios");
+
+            // Muestra los comentarios
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='comment'>";
+                echo "<span class='username'>" . $row['usuario'] . ":</span>";
+                echo "<p>" . $row['comentario'] . "</p>";
+                echo "</div>";
+            }
+
+            // Cierra la conexión
+            $mysqli->close();
+            ?>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
